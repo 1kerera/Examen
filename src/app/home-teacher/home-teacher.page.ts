@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-home-teacher',
   templateUrl: './home-teacher.page.html',
@@ -11,7 +11,8 @@ export class HomeTeacherPage implements OnInit {
   tuDatoQR: string;
   mostrarQR: boolean = false; // Variable para controlar la visibilidad del QR
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              private menuController: MenuController) {
     this.tuDatoQR = 'valor xDDDDD';
   }
 
@@ -20,7 +21,9 @@ export class HomeTeacherPage implements OnInit {
   }
 
   logout() {
+    this.menuController.close();
     this.authService.logout();
+    
   }
 
   // Función para generar el código QR
@@ -31,5 +34,7 @@ export class HomeTeacherPage implements OnInit {
   }
 
   ngOnInit() {
+  this.mostrarQR = false;
   }
+
 }

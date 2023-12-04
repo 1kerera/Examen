@@ -1,16 +1,21 @@
-<!-- app.component.html -->
 <ion-menu side="end" contentId="main-content">
-  <!-- Contenido del menú -->
   <ion-header>
-    <ion-toolbar>
-      <ion-title>{{ getUsername() }}</ion-title>
+    <ion-toolbar class="header-toolbar">
+      <br>
+      <ion-avatar class="ion-align-self-center profile-image">
+        <!-- Agrega aquí la URL o el path de la imagen de perfil -->
+        <img src="../../assets/R.jpeg" alt="Profile Image">
+      </ion-avatar>
+      <ion-title class="menu-username">
+        {{ getUsername() }}
+      </ion-title>
+      <br>
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <!-- Contenido del menú, por ejemplo, enlaces a diferentes páginas -->
     <ion-list>
       <ion-item routerLink="/home">Home</ion-item>
-      <ion-item (click)="logout()">Log Out</ion-item> <!-- Añadí el evento click para llamar al método logout -->
+      <ion-item (click)="logout()">Log Out</ion-item>
       <!-- Agrega más enlaces según tus necesidades -->
     </ion-list>
   </ion-content>
@@ -29,3 +34,6 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content>
+
+</ion-content>

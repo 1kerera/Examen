@@ -1,17 +1,22 @@
-<!-- app.component.html -->
 <ion-menu side="end" contentId="main-content">
-  
   <ion-header>
-    <ion-toolbar>
-      <ion-title>{{ getUsername() }}</ion-title>
+    <ion-toolbar class="header-toolbar">
+      <br>
+      <ion-avatar class="ion-align-self-center profile-image">
+        <!-- Agrega aquí la URL o el path de la imagen de perfil -->
+        <img src="../../assets/profe.jpeg" alt="Profile Image">
+      </ion-avatar>
+      <ion-title class="menu-username">
+        {{ getUsername() }}
+      </ion-title>
+      <br>
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    
     <ion-list>
       <ion-item routerLink="/home-teacher">Home</ion-item>
-      <ion-item (click)="logout()">Log Out</ion-item>
-      
+      <ion-item (click)="logout()">Cerrar sesión</ion-item>
+      <!-- Agrega más enlaces según tus necesidades -->
     </ion-list>
   </ion-content>
 </ion-menu>
@@ -29,12 +34,10 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
   <br>
   <ion-card *ngIf="mostrarQR">
     <br>
-    
     <div class="centro">
       <qr-code [value]="tuDatoQR" [size]="300" [errorCorrectionLevel]="'M'"></qr-code>
     </div>
@@ -48,4 +51,3 @@
   <br>
   <br>
 </ion-content>
-
