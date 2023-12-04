@@ -1,17 +1,17 @@
 <!-- app.component.html -->
 <ion-menu side="end" contentId="main-content">
-  <!-- Contenido del menú -->
+  
   <ion-header>
     <ion-toolbar>
       <ion-title>{{ getUsername() }}</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <!-- Contenido del menú, por ejemplo, enlaces a diferentes páginas -->
+    
     <ion-list>
       <ion-item routerLink="/home-teacher">Home</ion-item>
-      <ion-item (click)="logout()">Log Out</ion-item> <!-- Añadí el evento click para llamar al método logout -->
-      <!-- Agrega más enlaces según tus necesidades -->
+      <ion-item (click)="logout()">Log Out</ion-item>
+      
     </ion-list>
   </ion-content>
 </ion-menu>
@@ -28,4 +28,24 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+
+<ion-content>
+  <br>
+  <ion-card *ngIf="mostrarQR">
+    <br>
+    
+    <div class="centro">
+      <qr-code [value]="tuDatoQR" [size]="300" [errorCorrectionLevel]="'M'"></qr-code>
+    </div>
+    <br>
+    <br>
+  </ion-card>
+
+  <ion-button (click)="generarQR()" expand="block" fill="clear" shape="round">
+    Generar QR
+  </ion-button>
+  <br>
+  <br>
+</ion-content>
 
