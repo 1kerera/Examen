@@ -1,13 +1,31 @@
+<!-- app.component.html -->
+<ion-menu side="end" contentId="main-content">
+  <!-- Contenido del menú -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{ getUsername() }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <!-- Contenido del menú, por ejemplo, enlaces a diferentes páginas -->
+    <ion-list>
+      <ion-item routerLink="/home-teacher">Home</ion-item>
+      <ion-item (click)="logout()">Log Out</ion-item> <!-- Añadí el evento click para llamar al método logout -->
+      <!-- Agrega más enlaces según tus necesidades -->
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main-content"></ion-router-outlet>
+
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>homeTeacher</ion-title>
+    <ion-title>
+      Bienvenido, {{ getUsername() }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">homeTeacher</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>

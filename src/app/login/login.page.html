@@ -1,19 +1,40 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
+  <ion-toolbar color="secondary" class="ion-text-center">
+    <ion-title class="ion-text-center">RegistrAPP</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-label position="floating">Usuario</ion-label>
-    <ion-input type="text" [(ngModel)]="username"></ion-input>
-  </ion-item>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" class="ion-text-center">RegistrAPP</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-  <ion-item>
-    <ion-label position="floating">Contraseña</ion-label>
-    <ion-input type="password" [(ngModel)]="password"></ion-input>
-  </ion-item>
+  <ion-card class="login-card">
+    <ion-card-header class="login-card-header">
+      <ion-card-title class="ion-text-center">Iniciar Sesión</ion-card-title>
+    </ion-card-header>
 
-  <ion-button expand="full" (click)="login()">Iniciar Sesión</ion-button>
+    <ion-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Username</ion-label>
+            <ion-input type="text" formControlName="username"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-list>
+
+        <ion-button color="secondary" expand="full" type="submit" [disabled]="loginForm.invalid">Login</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Enlace para ir a la página de restablecer contraseña -->
+  <ion-button expand="full" color="medium" routerLink="/reset-password">¿Olvidaste tu contraseña?</ion-button>
 </ion-content>

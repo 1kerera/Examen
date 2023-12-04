@@ -1,4 +1,3 @@
-// auth.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
@@ -10,6 +9,7 @@ export class AuthService {
   private isAuthenticatedSubject: BehaviorSubject<boolean>;
   public isAuthenticated$: Observable<boolean>;
   private username: string = '';
+  private password: string = '1234'; // Cambia la contraseña inicial aquí
 
   constructor(private router: Router) {
     // Obtener el estado de autenticación del localStorage al inicio
@@ -22,22 +22,33 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-    if (username === 'teacher' && password === '1234') {
-      this.username = 'teacher';
-      this.setAuthentication(true);
-      this.router.navigate(['/home-teacher']);
-    } else if (username === 'alumno' && password === '1234') {
-      this.username = 'alumno';
-      this.setAuthentication(true);
-      this.router.navigate(['/home']);
-    } else {
-      this.setAuthentication(false);
-    }
+    // Simular un retraso de 1 segundo (1000 milisegundos)
+    const delayTime = 500;
+  
+    // Simular un retraso antes de procesar el inicio de sesión
+    setTimeout(() => {
+      if (username === 'teacher' && password === this.password) {
+        this.username = 'teacher';
+        this.setAuthentication(true);
+        this.router.navigate(['/home-teacher']);
+      } else if (username === 'alumno' && password === this.password) {
+        this.username = 'alumno';
+        this.setAuthentication(true);
+        this.router.navigate(['/home']);
+      } else {
+        this.setAuthentication(false);
+      }
+    }, delayTime);
+  }
+
+  changePassword(newPassword: string) {
+    // Cambiar la contraseña almacenada
+    this.password = newPassword;
   }
 
   logout() {
     this.setAuthentication(false);
-    // Redirige a la página de login después de cerrar sesión
+    // Redirige a la página de inicio de sesión después de cerrar sesión
     this.router.navigate(['/login']);
   }
 
