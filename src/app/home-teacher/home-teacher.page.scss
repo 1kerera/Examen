@@ -46,3 +46,8 @@ ion-title.menu-username {
   font-size: 1.5em;
   margin-bottom: 8px;
 }
+.codigo-qr-img {
+  max-width: 100%;    // Establece el ancho máximo al 100% del contenedor
+  max-height: 100%;   // Establece la altura máxima al 100% del contenedor
+  object-fit: contain; // Ajusta el contenido manteniendo la proporción original
+}

@@ -52,6 +52,16 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
+  setAttendanceInfo(info: any) {
+    // Guardar la información de asistencia en localStorage
+    localStorage.setItem('attendanceInfo', JSON.stringify(info));
+  }
+
+  getAttendanceInfo() {
+    const infoString = localStorage.getItem('attendanceInfo');
+    return infoString ? JSON.parse(infoString) : null;
+  }
+
   private setAuthentication(value: boolean) {
     localStorage.setItem('authenticated', value.toString());
     localStorage.setItem('username', value ? this.username : ''); // Almacena el nombre de usuario si está autenticado
@@ -60,5 +70,17 @@ export class AuthService {
 
   getUsername(): string {
     return this.username;
+  }
+
+  getRole(): string {
+    // Verifica si el nombre de usuario es "teacher" o "alumno"
+    if (this.username === 'teacher') {
+      return 'teacher';
+    } else if (this.username === 'alumno') {
+      return 'alumno';
+    } else {
+      // Maneja otros casos si es necesario
+      return '';
+    }
   }
 }

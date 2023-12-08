@@ -1,21 +1,22 @@
 <ion-menu side="end" contentId="main-content">
   <ion-header>
     <ion-toolbar class="header-toolbar">
-      <br>
       <ion-avatar class="ion-align-self-center profile-image">
-        <!-- Agrega aquí la URL o el path de la imagen de perfil -->
         <img src="../../assets/R.jpeg" alt="Profile Image">
       </ion-avatar>
       <ion-title class="menu-username">
         {{ getUsername() }}
       </ion-title>
-      <br>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item routerLink="/home">Home</ion-item>
-      <ion-item (click)="logout()">Log Out</ion-item>
+      <ion-item routerLink="/home">
+        <ion-label>Home</ion-label>
+      </ion-item>
+      <ion-item (click)="logout()">
+        <ion-label>Log Out</ion-label>
+      </ion-item>
       <!-- Agrega más enlaces según tus necesidades -->
     </ion-list>
   </ion-content>
@@ -35,5 +36,32 @@
 </ion-header>
 
 <ion-content>
+  <ion-card *ngIf="!asistenciaEscaneada">
+    <ion-card-header>
+      Escanea el código de asistencia
+    </ion-card-header>
+    <ion-card-content class="ion-text-center">
+      <!-- Agregar botón de escaneo manual -->
+      <ion-button (click)="startManualScan()" expand="full">Escanear Manualmente</ion-button>
+  
+      <!-- Componente de escaneo -->
+      <zxing-scanner
+        [formats]="[QR_CODE]"
+        (scanSuccess)="onScanSuccess($event)"
+        class="scanner"
+      ></zxing-scanner>
+    </ion-card-content>
+  </ion-card>
 
+  <ion-card *ngIf="asistenciaEscaneada">
+    <ion-card-header>
+      Información de Asistencia
+    </ion-card-header>
+    <ion-card-content>
+      <p>Fecha: {{ asistenciaEscaneada.fecha }}</p>
+      <p>Hora: {{ asistenciaEscaneada.hora }}</p>
+      <p>Clase: {{ asistenciaEscaneada.clase_id }}</p>
+      <p>Profesor: {{ asistenciaEscaneada.profesor }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
