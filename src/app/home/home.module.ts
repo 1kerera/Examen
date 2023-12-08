@@ -5,9 +5,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
-import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { HomePageRoutingModule } from './home-routing.module';
-
+import { AuthService } from '../services/auth.service';
 
 @NgModule({
   imports: [
@@ -15,8 +14,8 @@ import { HomePageRoutingModule } from './home-routing.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    ZXingScannerModule, 
   ],
   declarations: [HomePage],
+  providers: [AuthService],
 })
 export class HomePageModule {}

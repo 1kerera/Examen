@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  
   private isAuthenticatedSubject: BehaviorSubject<boolean>;
   public isAuthenticated$: Observable<boolean>;
   private username: string = '';
   private password: string = '1234'; // Cambia la contraseña inicial aquí
 
-  constructor(private router: Router) {
+  constructor(private router: Router,) {
     // Obtener el estado de autenticación del localStorage al inicio
     const storedAuth = localStorage.getItem('authenticated');
     this.isAuthenticatedSubject = new BehaviorSubject<boolean>(storedAuth === 'true');

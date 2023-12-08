@@ -2,7 +2,8 @@
   <ion-header>
     <ion-toolbar class="header-toolbar">
       <ion-avatar class="ion-align-self-center profile-image">
-        <img src="../../assets/R.jpeg" alt="Profile Image">
+        <!-- Utiliza la propiedad userProfileImage para la URL de la imagen -->
+        <img [src]="" alt="Profile Image">
       </ion-avatar>
       <ion-title class="menu-username">
         {{ getUsername() }}
@@ -36,32 +37,22 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngIf="!asistenciaEscaneada">
-    <ion-card-header>
-      Escanea el código de asistencia
-    </ion-card-header>
-    <ion-card-content class="ion-text-center">
-      <!-- Agregar botón de escaneo manual -->
-      <ion-button (click)="startManualScan()" expand="full">Escanear Manualmente</ion-button>
-  
-      <!-- Componente de escaneo -->
-      <zxing-scanner
-        [formats]="[QR_CODE]"
-        (scanSuccess)="onScanSuccess($event)"
-        class="scanner"
-      ></zxing-scanner>
-    </ion-card-content>
-  </ion-card>
+  <ion-list *ngIf="attendanceRecords.length > 0">
+    <ion-item *ngFor="let record of attendanceRecords">
+      <ion-text>
+        <p>{{ 'Clase: ' + record.clase_id }}</p>
+        <p>{{ 'Profesor: ' + record.profesor }}</p>
+        <p>{{ 'Fecha: ' + record.fecha }}</p>
+        <p>{{ 'Hora: ' + record.hora }}</p>
+      </ion-text>
+    </ion-item>
+  </ion-list>
 
-  <ion-card *ngIf="asistenciaEscaneada">
-    <ion-card-header>
-      Información de Asistencia
-    </ion-card-header>
-    <ion-card-content>
-      <p>Fecha: {{ asistenciaEscaneada.fecha }}</p>
-      <p>Hora: {{ asistenciaEscaneada.hora }}</p>
-      <p>Clase: {{ asistenciaEscaneada.clase_id }}</p>
-      <p>Profesor: {{ asistenciaEscaneada.profesor }}</p>
-    </ion-card-content>
-  </ion-card>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="scan()" [disabled]="!isSupported">
+      <ion-icon name="scan"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
+
+
