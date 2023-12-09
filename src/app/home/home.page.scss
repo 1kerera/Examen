@@ -7,7 +7,11 @@
   top: 50%;
   transform: translateY(-50%);
 }
+ion-toolbar {
+  --background: rgb(1, 40, 64);
+  --color:rgb(242, 242, 242);
 
+}
 #container strong {
   font-size: 20px;
   line-height: 26px;
@@ -30,7 +34,13 @@ ion-header {
   justify-content: center;
   align-items: center;
 }
-
+ion-content{
+  --background: rgb(242, 242, 242);
+}
+ion-item {
+  --background:rgb(242, 168, 29); 
+  margin-top: 16px;
+}
 .header-toolbar {
   display: flex;
   justify-content: space-between;

@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="secondary" class="ion-text-center">
-    <ion-title class="ion-text-center">RegistrAPP</ion-title>
+  <ion-toolbar class="ion-text-center">
+    <ion-title class="ion-text-center">Registr APP</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -30,11 +30,21 @@
           </ion-item>
         </ion-list>
 
-        <ion-button color="secondary" expand="full" type="submit" [disabled]="loginForm.invalid">Login</ion-button>
+        <ion-button expand="full" type="submit" [disabled]="loginForm.invalid">Login</ion-button>
       </form>
     </ion-card-content>
   </ion-card>
 
   <!-- Enlace para ir a la página de restablecer contraseña -->
-  <ion-button expand="full" color="medium" routerLink="/reset-password">¿Olvidaste tu contraseña?</ion-button>
+  <br>
+  <div class="ion-text-center">
+    <a class="custom-link" expand="full" color="medium" routerLink="/reset-password">¿Olvidaste tu contraseña?</a>
+  </div>
+  
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="ion-text-center"><em>La nueva forma de marcar tu asistencia</em></ion-title>
+  </ion-toolbar>
+</ion-footer>

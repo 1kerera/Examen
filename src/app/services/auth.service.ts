@@ -27,12 +27,12 @@ export class AuthService {
   
     // Simular un retraso antes de procesar el inicio de sesión
     setTimeout(() => {
-      if (username === 'teacher' && password === this.password) {
-        this.username = 'teacher';
+      if (username === 'Profesor Javier' && password === this.password) {
+        this.username = 'Profesor Javier';
         this.setAuthentication(true);
         this.router.navigate(['/home-teacher']);
-      } else if (username === 'alumno' && password === this.password) {
-        this.username = 'alumno';
+      } else if (username === 'Fernando' && password === this.password) {
+        this.username = 'Fernando';
         this.setAuthentication(true);
         this.router.navigate(['/home']);
       } else {
@@ -74,10 +74,10 @@ export class AuthService {
 
   getRole(): string {
     // Verifica si el nombre de usuario es "teacher" o "alumno"
-    if (this.username === 'teacher') {
-      return 'teacher';
-    } else if (this.username === 'alumno') {
-      return 'alumno';
+    if (this.username === 'Profesor Javier') {
+      return 'Profesor Javier';
+    } else if (this.username === 'Fernando') {
+      return 'Fernando';
     } else {
       // Maneja otros casos si es necesario
       return '';

@@ -17,7 +17,7 @@ export class HomeTeacherPage implements OnInit {
 
   async generarQR() {
     // Verifica si el usuario autenticado es un docente
-    if (this.authService.getRole() === 'teacher') {
+    if (this.authService.getRole() === 'Profesor Javier') {
       // Información para el registro de asistencia
       const asistenciaInfo = {
         clase_id: "PROGRAMACION DE APLICACIONES MOVILES_006V",

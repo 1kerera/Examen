@@ -3,18 +3,16 @@
     <ion-toolbar class="header-toolbar">
       <ion-avatar class="ion-align-self-center profile-image">
         <!-- Utiliza la propiedad userProfileImage para la URL de la imagen -->
-        <img [src]="" alt="Profile Image">
+        <img src="../../assets/R.jpeg" alt="Profile Image">
       </ion-avatar>
       <ion-title class="menu-username">
         {{ getUsername() }}
       </ion-title>
+      <br>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item routerLink="/home">
-        <ion-label>Home</ion-label>
-      </ion-item>
       <ion-item (click)="logout()">
         <ion-label>Log Out</ion-label>
       </ion-item>

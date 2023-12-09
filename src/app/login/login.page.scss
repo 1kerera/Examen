@@ -1,24 +1,45 @@
-/* login.page.scss */
+ion-toolbar {
+  --background: rgb(1, 40, 64);
+  --color:rgb(242, 242, 242);
+
+}
+
 
 ion-content {
-    .login-card {
-      max-width: 400px;
-      margin: auto;
+  --background: rgb(242, 242, 242);
+  .login-card {
+    max-width: 400px;
+    margin: auto;
+    
+  }
+
+
+
+  .login-card-header {
+    background-color: rgb(1, 40, 64);
+  }
+  
+  ion-content {
+    background-color: rgb(242, 242, 242);
+  }
+
+  .login-form {
+    ion-item {
+      --background: rgb(242, 242, 242);
+      --color:rgb(1, 40, 64);
+      margin-bottom: 16px;
     }
 
-    .login-card-header {
-      background-color: rgb(39, 205, 255); /* Ajusta el color de fondo según tus preferencias */
-      color: rgb(0, 0, 0);
-    }
-  
-    .login-form {
-      ion-item {
-        margin-bottom: 16px;
-      }
-  
-      ion-button {
-        margin-top: 16px;
-      }
+    ion-button {
+      --background:rgb(242, 168, 29); 
+      margin-top: 16px;
     }
   }
+  .ion-text-center{
+    height: 100%; 
+    
+    color: white;
+    
+  }
+}
   

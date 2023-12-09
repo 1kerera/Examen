@@ -4,21 +4,16 @@
       <ion-avatar class="ion-align-self-center profile-image">
         <img src="../../assets/profe.jpeg" alt="Profile Image">
       </ion-avatar>
-      <ion-title class="menu-username">
+      <ion-title class="username_menu">
         {{ authService.getUsername() }}
       </ion-title>
+      <br>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item routerLink="/home-teacher">
-        <ion-label>Home</ion-label>
-      </ion-item>
-      <ion-item routerLink="/profile">
-        <ion-label>Perfil</ion-label>
-      </ion-item>
       <ion-item (click)="logout()">
-        <ion-label>Cerrar sesión</ion-label>
+        <ion-label>Log Out</ion-label>
       </ion-item>
       <!-- Agrega más enlaces según tus necesidades -->
     </ion-list>
@@ -45,7 +40,7 @@
       <img [src]="tuDatoQR" alt="Código QR" class="codigo-qr-img">
     </div>
   </ion-card>
-  
+  <br>
   <ion-button (click)="generarQR()" expand="block" fill="clear" shape="round">
     Generar QR
   </ion-button>

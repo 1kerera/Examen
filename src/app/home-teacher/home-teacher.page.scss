@@ -2,6 +2,12 @@ ion-header {
   display: flex;
   justify-content: center;
   align-items: center;
+  --background: rgb(1, 40, 64);
+}
+ion-toolbar {
+  --background: rgb(1, 40, 64);
+  --color:rgb(242, 242, 242);
+  
 }
 
 .header-toolbar {
@@ -36,10 +42,16 @@ ion-header {
   color: #fff; /* Añadido para que el texto sea visible en la imagen */
   font-size: 1.2em; /* Ajusta el tamaño del texto según sea necesario */
 }
+ion-content{
+  --background: rgb(242, 242, 242);
+}
 
-ion-title.menu-username {
-  font-size: 2.5em;
-  margin-top: 8px;
+.username_menu{
+  font-size: 0%;
+}
+ion-item{
+  margin-bottom: 10px;
+  --background:rgb(242, 168, 29); 
 }
 
 .welcome-message {
